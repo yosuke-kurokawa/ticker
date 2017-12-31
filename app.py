@@ -13,9 +13,12 @@ def index():
 if __name__ == '__main__':
   app.run(port=33507, host='0.0.0.0')
 
-@app.route('/graph')
+@app.route('/graph', methods=['GET','POST'])
 def bokeh():
-
+    if request.method == 'POST':
+        symbol = 'ticker'
+    
+    
     fig = figure(plot_width=600, plot_height=600)
     fig.line(
         x=[1, 2, 3, 4],
