@@ -13,3 +13,4 @@ name = "pypi"
 
 gunicorn = "==19.3.0"
 requests = "==2.9.1"
+flask-wtf = "==0.9.3"

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
     <meta name="author" content="@gotoariel">
+      
+    {{ js_resources|indent(4)|safe }}
+    {{ css_resources|indent(4)|safe }}
+    {{ plot_script|indent(4)|safe }}
     <!-- <link rel="icon" href="favicon.ico"> -->
 
     <title>Ticker Tracker App by Yosuke</title>
@@ -13,24 +17,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-left">
-          <h2>Welcome to the stock ticker tracker app by Yosuke</h2>
 
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12 text-left">
-                  <form id='input' method='post' action='index'>
-                  <p>Ticker symbol: <input type='text' name='ticker' placeholder='GOOG' /></p>
-                  <p><input type="submit" value="Submit"></p>
-                  </form>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </div>
+    {{ plot_div|indent(4)|safe }}
+ 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
