@@ -10,18 +10,8 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
-if __name__ == '__main__':
-  app.run(port=33507, host='0.0.0.0')
-
 @app.route('/graph', methods=['GET','POST'])
 def bokeh():
-    if request.method == 'POST':
-        ticker = request.form['ticker']
-        
-        return render_template('graph.html',plot_script=script, plot_div=div,
-                               js_resources=js_resources, css_resources=css_resources,
-                               ticker = ticker)
-    
     fig = figure(plot_width=600, plot_height=600)
     fig.line(
         x=[1, 2, 3, 4],
@@ -35,11 +25,23 @@ def bokeh():
 
     # render template
     script, div = components(fig)
-    html = render_template(
+    if request.method == 'POST':
+        ticker = request.form['ticker']
+
+        return render_template('graph.html',
+            plot_script=script,
+            plot_div=div,
+            js_resources=js_resources,
+            css_resources=css_resources,
+            ticker = ticker)
+
+    return render_template(
         'graph.html',
         plot_script=script,
         plot_div=div,
         js_resources=js_resources,
-        css_resources=css_resources,
-    )
-    return encode_utf8(html)
+        css_resources=css_resources)
+
+if __name__ == '__main__':
+  app.run(port=33507, host='0.0.0.0')
+
