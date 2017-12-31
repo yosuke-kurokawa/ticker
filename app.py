@@ -16,7 +16,9 @@ if __name__ == '__main__':
 @app.route('/graph', methods=['GET','POST'])
 def bokeh():
     if request.method == 'POST':
-        symbol = 'ticker'
+        ticker = request.form['ticker']
+        
+        return render_template('graph.html', ticker = ticker)
     
     
     fig = figure(plot_width=600, plot_height=600)
