@@ -18,8 +18,9 @@ def bokeh():
     if request.method == 'POST':
         ticker = request.form['ticker']
         
-        return render_template('graph.html', ticker = ticker)
-    
+        return render_template('graph.html',plot_script=script, plot_div=div,
+                               js_resources=js_resources, css_resources=css_resources,
+                               ticker = ticker)
     
     fig = figure(plot_width=600, plot_height=600)
     fig.line(
