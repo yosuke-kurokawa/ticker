@@ -11,13 +11,14 @@
     {{ plot_script|indent(4)|safe }}
     <!-- <link rel="icon" href="favicon.ico"> -->
 
-    <title>Ticker Tracker App by Yosuke</title>
+    <title>{{ test }} Ticker Tracker App by Yosuke</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-      <h1>Input ticker symbol: {{ ticker }} </h1>
+      <h2>Input ticker symbol: {{ ticker }} </h2>
+
     {{ plot_div|indent(4)|safe }}
  
     <!-- Bootstrap core JavaScript
