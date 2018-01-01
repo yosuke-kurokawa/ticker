@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A ticker app using Flask and Heroku">
     <meta name="author" content="@yosuke-kurokawa">
-      
-    {{ js_resources|indent(4)|safe }}
-    {{ css_resources|indent(4)|safe }}
-    {{ plot_script|indent(4)|safe }}
     <!-- <link rel="icon" href="favicon.ico"> -->
-
-    <title>{{ test }} Ticker Tracker App by Yosuke</title>
+    {% if ticker %}
+    <title>{{ ticker }} Ticker Tracker App by Yosuke</title>
+    {% else %}
+    <title>Ticker Tracker App by Yosuke</title>
+    {% endif %}
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-      <h2>Input ticker symbol: {{ ticker }} </h2>
-
-    {{ plot_div|indent(4)|safe }}
- 
+    {% block content %}{% endblock %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
